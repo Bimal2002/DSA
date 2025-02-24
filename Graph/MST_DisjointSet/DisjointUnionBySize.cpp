@@ -4,7 +4,7 @@ class DisjointSet{
     vector<int>size,parent;
     public:
        DisjointSet(int n){
-          size.resize(n+1,0);
+          size.resize(n+1,1);
           parent.resize(n+1,0);
           for(int i=0;i<=n;i++){
             parent[i]=i;
@@ -28,7 +28,7 @@ class DisjointSet{
            }else{
                   parent[ulp_v] = ulp_u;  // attach smaller tree under the larger tree
                   size[ulp_u] += size[ulp_v]; // increase the size of the larger tree after adding smaller tree to it
-                  
+
            }
 
        }
