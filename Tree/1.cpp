@@ -119,8 +119,8 @@ bool balanceTree(Node* root){
         return true;
     }
 
-    int lh = balanceTree(root->left);
-    int rh = balanceTree(root->right);
+    int lh = height(root->left);
+    int rh = height(root->right);
     int diff = abs(lh-rh);
     bool ans1 = (diff <=1);
     bool leftAns = balanceTree(root->left);

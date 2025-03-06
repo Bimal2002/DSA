@@ -80,11 +80,16 @@ public:
     }
 
     void buildHeap(int arr[], int n) {
+        // n/2+1 to n is the leaf nodes , so no need to call leaf nodes, call only 1 to n/2
         for (int i = n / 2; i > 0; i--) {
             heapify(arr, n, i);
         }
     }
 };
+
+
+//max_heap-     priority_queue<int>pq;
+//min_heap- priority_queue<int,vector<int>,greater<int>>pq;
 
 int main() {
     Heap heap;
