@@ -25,7 +25,7 @@ void getTop(){
     }else{
         cout<<arr[top];
     }
-}
+}  
 // 2 stacks in an array
 // top1=-1 , top2=size , space is avaiable if (top2-top1)>1
 int top1=-1,top2=100;// 100 - > means size of arr
