@@ -24,6 +24,26 @@ class Graph{
     }
 
 };
+vector<int>bfs(int V,vector<int>adj[]){
+    vector<int>vis(V,0);
+    vector<int>ls;
+    queue<int>q;
+    q.push(0);
+    vis[0]=1;
+    while(!q.empty()){
+        int node = q.front();
+        ls.push_back(node);
+        q.pop();
+        for(auto it: adj[node]){
+            if(!vis[it]){
+                q.push(it);
+                vis[it]=1;
+            }
+        }
+    }
+    return ls;
+
+}
 void addEdge(vector<int>adj[],int u,int v){
     adj[u].push_back(v);
     adj[v].push_back(u);
@@ -43,5 +63,7 @@ int main(){
     vector<int>ans = obj.bfsTraversal(5,adj); // 5 - verticies
     printAns(ans);
 
+    vector<int>ans1 = bfs(5,adj);
+    printAns(ans1);
 
 }
