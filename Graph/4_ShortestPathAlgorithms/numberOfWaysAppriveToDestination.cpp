@@ -34,6 +34,39 @@ int countPaths(int n,vector<vector<int>>&edges){
         }
      return ways[n-1]% mod;
 }
+
+int countways(vector<vector<int>>&edges,int n){
+     vector<pair<int,int>>adj[n];
+     for(auto it : edges){
+        adj[it[0]].push_back({it[1],it[2]});
+        adj[it[1]].push_back({it[0],it[2]});
+     }
+     vector<int>ways(n,0),dist(n,INT_MAX);
+     priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
+     dist[0]=0,ways[0]=1;
+     int mod = 1e9+7;
+     pq.push({0,0});
+     int dr[]={-1,0,1,0},dc[]={0,1,0,-1};
+     while(!pq.empty()){
+        int dis = pq.top().first;
+        int node = pq.top().second;
+        pq.pop();
+
+        for(auto it : adj[node]){
+            int adjN = it.first,adjW = it.second;
+            if(dis + adjW < dist[adjN]){
+                dist[adjN]= dis+adjW;
+                pq.push({adjN,adjW+adjN});
+                ways[adjN] =ways[node];
+            }
+            else if( dis + adjW == dist[adjN]){
+                ways[adjW] = (ways[node] + ways[adjN])%mod;
+            }
+        }
+     }
+     return ways[n-1]% mod;
+
+}
 int main()
 {
     int n = 7;
