@@ -28,8 +28,9 @@ vector<int>bellman_ford(int V,vector<vector<int>>&edges,int S){
 
             return {-1};
         }
-        return dist;
+        
     }
+    return dist;
 }
 int main() {
 
