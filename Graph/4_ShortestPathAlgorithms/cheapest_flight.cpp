@@ -46,7 +46,6 @@ int CheapestFLight(int n, vector<vector<int>> flights, int src, int dst, int K)
     return dist[dst];
 }
 
-
 int main()
 {
     // Driver Code.
