@@ -66,7 +66,6 @@ int Solve(int V,vector<vector<int>>&edge){
        int neededEdges = components-1; //because we need (componenets-1) edges to connect all the edges
        return (extraEdges >= neededEdges) ? neededEdges:-1;
 
-       
 }
 
 int main(){

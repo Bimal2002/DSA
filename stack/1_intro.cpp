@@ -228,7 +228,6 @@ int checkRedundancy(string &s){
                     return true;
                 }
 
-
             }
 
         }

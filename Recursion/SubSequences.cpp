@@ -26,9 +26,9 @@ void generateSubsets(vector<int> &arr, int i, vector<int> &current, vector<vecto
     // include arr[i]
     current.push_back(arr[i]);
     generateSubsets(arr, i + 1, current, result);
-
     // backtrack & exclude arr[i]
     current.pop_back();
+
     generateSubsets(arr, i + 1, current, result);
 }
 
@@ -86,9 +86,9 @@ void subsequenceWithSum(vector<int> &arr, int i, vector<int> &current, int sum, 
     // pick
     current.push_back(arr[i]);
     subsequenceWithSum(arr, i + 1, current, sum + arr[i], target);
-
     // backtrack
     current.pop_back();
+    
     subsequenceWithSum(arr, i + 1, current, sum, target);
 }
 

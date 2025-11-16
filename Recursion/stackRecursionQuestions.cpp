@@ -6,7 +6,6 @@ void insertAtBottom(stack<int>&st,int x){
         st.push(x);
         return ;
     } 
-
     int temp = st.top();
     st.pop();
     insertAtBottom(st,x);
@@ -50,8 +49,6 @@ void deleteMiddle(stack<int>&st){
     int mid = n/2;
     deleteMiddleHelper(st,0,mid);
 }
-
-
 
 // Delete K-th Element from the Bottom of a stack 
 // k-th from bottom means (n-k-1)-th from top

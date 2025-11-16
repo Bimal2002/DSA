@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 pair<int, vector<pair<int, int>>> MST(int V, vector<vector<int>> adj[])
 {
     priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> pq;
@@ -34,6 +35,34 @@ pair<int, vector<pair<int, int>>> MST(int V, vector<vector<int>> adj[])
         }
     }
     return {sum, mst_edges};
+}
+typedef pair<int,pair<int,int>>P;
+pair<int,vector<int>>MST_withEdges(int V,vector<vector<int>>adj[]){
+   priority_queue<P,vector<P>,greater<P>>pq;
+   pq.push({0,{0,-1}});
+   vector<bool>vis(V,false);
+   vector<pair<int,int>>mst_edges;
+   int sum =0;
+   while(!pq.empty()){
+      auto it = pq.top();
+      pq.pop();
+      int w = it.first;
+      int node = it.second.first;
+      int parent = it.second.second;
+      if(vis[node]) continue;
+      if(parent !=-1){
+        mst_edges.push_back({parent,node});
+      }
+      sum += w;
+      for(auto it : adj[node]){
+        int wt = it[1];
+        int adjN = it[0];
+        if(!vis[adjN]){
+            pq.push({wt,{adjN,node}});
+        }
+      }
+   }
+   return {sum,mst_edges};
 }
 int spanningTree(int V, vector<vector<int>> adj[])
 {

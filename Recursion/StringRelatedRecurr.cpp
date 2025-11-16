@@ -52,11 +52,9 @@ void  generateBinaryStringWithKOnes(int n,int k,string current ,int oneSoFar){
     //base case
     if(current.length()==n){
          if(oneSoFar==k){
-            cout<<current<<endl;
-            
+            cout<<current<<endl;  
          }
          return ;
-         
     }
 
     // add '0'
